@@ -1,17 +1,14 @@
-// import * as cdk from 'aws-cdk-lib';
-// import { Template } from 'aws-cdk-lib/assertions';
-// import * as AwsLambdaLogFormat from '../lib/aws-lambda-log-format-stack';
+import { Template } from "aws-cdk-lib/assertions";
+import { App } from "aws-cdk-lib";
+import { AwsLambdaLogFormatStack } from "../lib/aws-lambda-log-format-stack";
 
-// example test. To run these tests, uncomment this file along with the
-// example resource in lib/aws-lambda-log-format-stack.ts
-test('SQS Queue Created', () => {
-//   const app = new cdk.App();
-//     // WHEN
-//   const stack = new AwsLambdaLogFormat.AwsLambdaLogFormatStack(app, 'MyTestStack');
-//     // THEN
-//   const template = Template.fromStack(stack);
-
-//   template.hasResourceProperties('AWS::SQS::Queue', {
-//     VisibilityTimeout: 300
-//   });
+describe("The AwsLambdaLogFormatStack stack", () => {
+ it("matches the snapshot", () => {
+  const app = new App();
+  const stack = new AwsLambdaLogFormatStack(app, "ServiceCatalogue", {
+   env: { region: "eu-west-1" },
+  });
+  const template = Template.fromStack(stack);
+  expect(template.toJSON()).toMatchSnapshot();
+ });
 });

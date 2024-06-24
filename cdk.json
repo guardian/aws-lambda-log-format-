@@ -1,5 +1,6 @@
 {
   "app": "npx ts-node --prefer-ts-exts bin/aws-lambda-log-format.ts",
+  "profile": "developerPlayground",
   "watch": {
     "include": [
       "**"
