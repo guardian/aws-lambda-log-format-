@@ -8,7 +8,13 @@
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk"
+    "cdk": "cdk",
+    "view:json": "npm run invoke:json && npm run logs:json",
+    "view:text": "npm run invoke:text && npm run logs:text",
+    "invoke:json": "aws lambda invoke --profile developerPlayground --region eu-west-1 --no-cli-pager --function-name json-format-function response-json-format-function.json",
+    "invoke:text": "aws lambda invoke --profile developerPlayground --region eu-west-1 --no-cli-pager --function-name text-format-function response-text-format-function.json",
+    "logs:text": "devx-logs --space developer-playground --column message --column status --app text-format-function",
+    "logs:json": "devx-logs --space developer-playground --column message --column status --app json-format-function"
   },
   "devDependencies": {
     "@types/jest": "^29.5.12",

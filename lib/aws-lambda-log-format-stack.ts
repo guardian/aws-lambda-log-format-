@@ -33,6 +33,7 @@ export class AwsLambdaLogFormatStack extends Stack {
         ...lambdaProps.environment,
         APP: "text-format-function",
       },
+      functionName: "text-format-function",
       loggingFormat: LoggingFormat.TEXT,
     });
 
@@ -44,6 +45,7 @@ export class AwsLambdaLogFormatStack extends Stack {
         ...lambdaProps.environment,
         APP: "json-format-function",
       },
+      functionName: "json-format-function",
       loggingFormat: LoggingFormat.JSON,
     });
 
