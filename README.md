@@ -20,3 +20,24 @@ Assuming you're using the correct [Node version](.nvmrc), and have installed dep
 This experiment uses vanilla AWS CDK, as opposed to [`@guardian/cdk` (aka GuCDK)](https://github.com/guardian/cdk). 
 GuCDK brings a lot of opinions, which are not necessary for this minimal experiment.
 It also does not employ CI/CD for the same reason.
+
+## Results
+
+### JSON formatted lambda logs in Central ELK
+![img](images/json-format-results.jpg)
+
+### Text formatted lambda logs in Central ELK
+![img](images/text-format-results.jpg)
+
+## Conclusion
+- `guardian/cloudwatch-logs-management` currently only processes text formatted logs correctly
+- To add markers to a log line, one needs to `console.log` a JSON stringified object:
+
+    ```ts
+    console.log(JSON.stringify({
+     message: "Article has rendered",
+     durationMs: 2,
+     path: "/article/1234567"
+    }));
+    ```
+- Central ELK fails to ingest a JSON formatted log of an object (`Log 2`) 
