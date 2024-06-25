@@ -5,10 +5,7 @@
     "aws-lambda-log-format": "bin/aws-lambda-log-format.js"
   },
   "scripts": {
-    "build": "tsc",
-    "watch": "tsc -w",
     "test": "jest",
-    "cdk": "cdk",
     "deploy": "cdk deploy",
     "view:json": "npm run invoke:json && npm run logs:json && npm run tail:json",
     "view:text": "npm run invoke:text && npm run logs:text && npm run tail:text",
