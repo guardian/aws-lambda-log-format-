@@ -9,6 +9,7 @@ export class AwsLambdaLogFormatStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
 
+    // Manually add the standard tags (these are automatically added with GuCDK).
     Tags.of(this).add("Stack", "playground");
     Tags.of(this).add("Stage", "TEST");
     Tags.of(this).add("gu:repo", "guardian/aws-lambda-log-format");
@@ -33,6 +34,8 @@ export class AwsLambdaLogFormatStack extends Stack {
         ...lambdaProps.environment,
         APP: "text-format-function",
       },
+
+      // Explicitly set the function name to make it deterministic, thus simplifying CLI usage
       functionName: "text-format-function",
       loggingFormat: LoggingFormat.TEXT,
     });
@@ -45,6 +48,8 @@ export class AwsLambdaLogFormatStack extends Stack {
         ...lambdaProps.environment,
         APP: "json-format-function",
       },
+
+      // Explicitly set the function name to make it deterministic, thus simplifying CLI usage
       functionName: "json-format-function",
       loggingFormat: LoggingFormat.JSON,
     });

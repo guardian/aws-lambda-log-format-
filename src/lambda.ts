@@ -21,8 +21,19 @@ export async function main(...args: unknown[]) {
   `${app} (${stage}) called with ${args.map((arg) => JSON.stringify(arg)).join(", ")}`,
  );
 
+ // This log should appear in the `message` field within Central ELK.
  console.log("This is a plain text message");
+
+ // This log should appear in the `message` field within Central ELK, with a `status` marker.
  console.log({ message: "This is a JSON message with markers", status: 200 });
+
+ // This log should appear in the `message` field within Central ELK, with a `status` marker.
  console.log(JSON.stringify({ message: "This is a JSON.stringify message with markers", status: 200 }));
+
+ // This log should appear in the `message` field within Central ELK, with a `status` marker.
+ // It probably will not, as that's not how `console.log` works!
  console.log("This is a plain text message with markers", { status: 200 });
+
+ // This log should appear in the `message` field within Central ELK, with a `status` marker.
+ console.log(`This is a plain text message with markers ${JSON.stringify('%s')}`, { status: 200 });
 }
