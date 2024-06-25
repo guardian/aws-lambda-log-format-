@@ -12,8 +12,8 @@
     "view:text": "npm run invoke:text && npm run logs:text && npm run tail:text",
     "invoke:json": "aws lambda invoke --profile developerPlayground --region eu-west-1 --no-cli-pager --function-name json-format-function response-json-format-function.json",
     "invoke:text": "aws lambda invoke --profile developerPlayground --region eu-west-1 --no-cli-pager --function-name text-format-function response-text-format-function.json",
-    "logs:text": "devx-logs --space developer-playground --column message --column status --app text-format-function",
-    "logs:json": "devx-logs --space developer-playground --column message --column status --app json-format-function",
+    "logs:text": "devx-logs --space developer-playground --column message --column status --column app --app text-format-function",
+    "logs:json": "devx-logs --space developer-playground --column message --column status --column app --app json-format-function",
     "tail:text": "aws logs tail /aws/lambda/text-format-function --profile developerPlayground --region eu-west-1 --since 5s --follow",
     "tail:json": "aws logs tail /aws/lambda/json-format-function --profile developerPlayground --region eu-west-1 --since 5s --follow"
   },
