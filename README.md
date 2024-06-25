@@ -3,7 +3,7 @@
 An experiment to understand how different [AWS Lambda log formats](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-cloudwatchlogs-advanced.html) 
 are handled by [`guardian/cloudwatch-logs-management`](https://github.com/guardian/cloudwatch-logs-management).
 
-The repository uses AWS CDK to provision two Lambda functions. 
+The repository uses AWS CDK to provision two Lambda functions into the Developer Playground account. 
 One emits logs in JSON format, the other in text format.
 
 ## Useful commands
@@ -11,9 +11,9 @@ One emits logs in JSON format, the other in text format.
 Assuming you're using the correct [Node version](.nvmrc), and have installed dependencies via `npm i`, run:
 
 * `npm run dev`         to run the lambda locally
-* `npm run deploy`      to deploy to AWS
-* `npm run view:json`   to invoke the lambda emitting JSON formatted logs, view the raw logs from CloudWatch, and the processed logs in Central ELK 
-* `npm run view:text`   to invoke the lambda emitting text formatted logs, view the raw logs from CloudWatch, and the processed logs in Central ELK
+* `npm run deploy`      to deploy to AWS (requires `developerPlayground` credentials)
+* `npm run view:json`   to invoke the lambda emitting JSON formatted logs, view the raw logs from CloudWatch, and the processed logs in Central ELK (requires `developerPlayground` credentials) 
+* `npm run view:text`   to invoke the lambda emitting text formatted logs, view the raw logs from CloudWatch, and the processed logs in Central ELK (requires `developerPlayground` credentials)
 
 ## Implementation detail
 
