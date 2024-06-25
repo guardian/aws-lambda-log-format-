@@ -6,6 +6,7 @@
   },
   "scripts": {
     "test": "jest",
+    "dev": "STACK=playground STAGE=DEV APP=aws-lambda-log-format ts-node src/run-locally.ts",
     "deploy": "cdk deploy",
     "view:json": "npm run invoke:json && npm run logs:json && npm run tail:json",
     "view:text": "npm run invoke:text && npm run logs:text && npm run tail:text",

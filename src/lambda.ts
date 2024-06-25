@@ -17,7 +17,7 @@ function getConfig() {
 export async function main(...args: unknown[]) {
  const { stage, app } = getConfig();
 
- console.log(
+ console.debug(
   `${app} (${stage}) called with ${args.map((arg) => JSON.stringify(arg)).join(", ")}`,
  );
 
